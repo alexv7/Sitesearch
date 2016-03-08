@@ -1,0 +1,17 @@
+<%# apps/views/site/search.html.erb %>
+<h1>Music Distribution</h1>
+<%= form_tag site_search_path do %>
+  <%= search_field_tag :term %>
+  <%= submit_tag "Go!" %>
+<% end %>
+<%#= params[:term] %>
+
+
+<%# apps/views/site/search.html.erb %>
+<% if @results.empty? %>
+  Try your search again.
+<% else %>
+  <% @results.each do |result| %>
+    <p><%= link_to result.name, result  %></p>
+  <% end %>
+<% end %>
